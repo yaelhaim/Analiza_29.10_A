@@ -1,17 +1,61 @@
-// Exercise 1 - Live Business Card
-// Write all your code in this file. Read README.md for the full instructions.
-// Run the tests with: npm test
+const form = document.querySelector("#card-form");
+const nameInput = document.querySelector("#name-input");
+const jobInput = document.querySelector("#job-input");
+const emailInput = document.querySelector("#email-input");
+const bioInput = document.querySelector("#bio-input");
+const card = document.querySelector("#card");
+const cardName = document.querySelector("#card-name");
+const cardJob = document.querySelector("#card-job");
+const cardEmail = document.querySelector("#card-email");
+const cardBio = document.querySelector("#card-bio");
+const avatar = document.querySelector("#avatar");
+const counter = document.querySelector(".counter");
+const bioLeft = document.querySelector("#bio-left");
+const color = document.querySelector("#color-select");
+const dark = document.querySelector("#theme-btn");
+const reset = document.querySelector("#reset-btn");
+form.addEventListener("input", function() {
+    const name = nameInput.value.trim();
+    const job = jobInput.value.trim();
+    const email = emailInput.value.trim();
+    const bio = bioInput.value.trim();
+    let counterBio = 80 - bio.length;
 
-// Step 1: live text (name, job, email, bio -> card), trimmed, default text when empty
 
-// Step 2: avatar letter (first letter of the name in uppercase, "?" when empty)
+    cardName.textContent = name || "Your name";
+    avatar.textContent = name ? name[0].toUpperCase() : "?";
+    cardJob.textContent = job || "Your job title";
+    cardEmail.textContent = email || "your@email.com";
+    cardBio.textContent = bio || "Your bio will appear here.";
+    bioLeft.textContent = `${counterBio}`;
+    counter.classList.toggle("warning", counterBio <= 10);
+});
+color.addEventListener("change", function() {
+    let inputColor = color.value;
+    card.style.borderColor = inputColor;
+    avatar.style.backgroundColor = inputColor;
 
-// Step 3: bio character counter + "warning" class when 10 or fewer are left
+});
+dark.addEventListener("click", function() {
+    document.body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+        dark.textContent = "Light mode"
+    } else {
+        dark.textContent = "Dark mode"
+    }
+});
+reset.addEventListener("click", function() {
+    form.reset();
+    cardName.textContent = "Your name";
+    cardJob.textContent = "Your job title";
+    cardEmail.textContent = "your@email.com";
+    cardBio.textContent = "Your bio will appear here.";
 
-// Step 4: accent color (card border + avatar background)
+    avatar.textContent = "?";
+    bioLeft.textContent = "80";
+    counter.classList.remove("warning");
 
-// Step 5: dark mode button
-
-// Step 6: reset button
-
-//
+    color.value = "#4f46e5";
+    card.style.borderColor = "#4f46e5";
+    avatar.style.backgroundColor = "#4f46e5";
+});
