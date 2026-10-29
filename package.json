@@ -1,0 +1,15 @@
+{
+  "name": "dom-01-business-card",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Exercise 1 - Live Business Card (DOM events) - starter with tests",
+  "scripts": {
+    "test": "node --test --test-reporter=./test/reporter.mjs test/card.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}

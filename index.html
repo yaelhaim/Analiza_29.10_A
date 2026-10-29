@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Business Card</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="layout">
+    <form id="card-form" class="panel">
+      <h2>Edit your card</h2>
+
+      <label>Full name
+        <input id="name-input" type="text" maxlength="30" placeholder="Dana Levi">
+      </label>
+
+      <label>Job title
+        <input id="job-input" type="text" maxlength="30" placeholder="Full Stack Student">
+      </label>
+
+      <label>Email
+        <input id="email-input" type="email" placeholder="dana@example.com">
+      </label>
+
+      <label>Short bio
+        <textarea id="bio-input" maxlength="80" rows="3" placeholder="Tell us about yourself"></textarea>
+      </label>
+      <p class="counter"><span id="bio-left">80</span> characters left</p>
+
+      <label>Accent color
+        <select id="color-select">
+          <option value="#4f46e5">Indigo</option>
+          <option value="#059669">Green</option>
+          <option value="#dc2626">Red</option>
+        </select>
+      </label>
+
+      <div class="buttons">
+        <button type="button" id="theme-btn">Dark mode</button>
+        <button type="button" id="reset-btn">Reset</button>
+      </div>
+    </form>
+
+    <section class="panel preview">
+      <article id="card" class="card">
+        <div id="avatar" class="avatar">?</div>
+        <h3 id="card-name">Your name</h3>
+        <p id="card-job">Your job title</p>
+        <p id="card-email">your@email.com</p>
+        <p id="card-bio">Your bio will appear here.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
